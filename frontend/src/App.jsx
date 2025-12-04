@@ -3,8 +3,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useSearchParams,
-  Navigate,
 } from 'react-router-dom';
 import Portfolio from "./components/Portfolio";
 

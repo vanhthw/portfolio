@@ -5,7 +5,7 @@ import * as z from "../assets/index"
 const menuItems = {
     left: [
         { name: "profile", image: z.geekImg, isSpecial: true },
-        { name: "works", image: z.folderImg }
+        { name: "tools", image: z.folderImg }
     ],
     right: [
         { name: "contact", image: z.folderImg },
@@ -63,7 +63,7 @@ const ProfileContent = () => {
             {/* Avatar */}
             <div className="w-40 h-40 rounded-full bg-gray-300 overflow-hidden flex-shrink-0">
                 <img 
-                    src={z.geekImg} 
+                    src={z.avatarImg} 
                     alt="Profile"
                     className="w-full h-full object-cover"
                 />
@@ -73,52 +73,135 @@ const ProfileContent = () => {
             <div className="flex flex-col gap-2">
                 <p className="text-gray-700 text-lg">Hi! I'm</p>
                 <h2 className="text-4xl font-bold text-[#e67e22] leading-tight">
-                    Võ<br/>Anh Thư
+                    Võ Anh Thư
+                    <span className="text-gray-700 text-lg"> (Sofia)</span>
                 </h2>
-                <p className="text-gray-600 uppercase tracking-wider text-sm mt-2">
+                <p className="text-gray-700 uppercase tracking-wider text-sm mt-2">
                     I'M A WEB DEVELOPER
                 </p>
-                <p className="text-[#e67e22] italic text-sm">
+                <p className="text-gray-600 italic text-sm border-l-4 border-[#e67e22] pl-3 mt-2">
+                    {/* "Bridging the gap between business needs and technical solutions" */}
                     "Code is like a puzzle, and I'm the puzzle solver"
                 </p>
+                <div className="flex gap-4 text-xs text-gray-500 mt-2">
+                    <span>Ho Chi Minh City, Viet Nam
+                        <img src={z.vietnamFlagImg} alt="Vietnam Flag" className="w-4 h-4 inline-block ml-1" />
+                    </span>
+                </div>
             </div>
         </div>
     )
 }
 
 // ==================== WORKS CONTENT ====================
-const WorksContent = () => {
-    const tools = [
-        { name: "GitHub", icon: z.githubImg },
-        { name: "VS Code", icon: z.githubImg },
-        { name: "Figma", icon: z.githubImg },
-        { name: "Canva", icon: z.githubImg },
-        { name: "Google\nDocs", icon: z.githubImg },
-        { name: "Google\nSheets", icon: z.githubImg },
-        { name: "Microsoft\nWord", icon: z.githubImg },
-        { name: "Microsoft\nExcel", icon: z.githubImg },
-    ]
+// const WorksContent = () => {
+//     const tools = [
+//         { name: "VS Code", icon: z.githubImg },
+//         { name: "Github", icon: z.githubImg },
+//         { name: "Figma", icon: z.githubImg },
+//         { name: "Basamiq", icon: z.githubImg },
+//         { name: "MySQL", icon: z.githubImg },
+//         { name: "Google\nSheets", icon: z.githubImg },
+//         { name: "Microsoft\nWord", icon: z.githubImg },
+//         { name: "Microsoft\nExcel", icon: z.githubImg },
+//     ]
+
+//     return (
+//         <div className="flex flex-col">            
+//             <h3 className="text-3xl font-bold text-center text-[#5a6340] mb-8">TOOLS</h3>
+            
+//             {/* Tools Grid */}
+//             <div className="grid grid-cols-4 gap-6">
+//                 {tools.map((tool, index) => (
+//                     <div key={index} className="flex flex-col items-center gap-2">
+//                         <div className="w-16 h-16 bg-white rounded-xl border-2 border-gray-200 flex items-center justify-center shadow-sm hover:scale-110 transition-transform cursor-pointer p-2">
+//                             <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
+//                         </div>
+//                         <span className="text-xs text-gray-600 text-center whitespace-pre-line">
+//                             {tool.name}
+//                         </span>
+//                     </div>
+//                 ))}
+//             </div>
+//         </div>
+//     )
+// }
+
+const ToolsContent = () => {
+    const toolCategories = [
+        {
+            category: "Development & Version Control",
+            description: "Coding and source code management",
+            tools: [
+                { name: "VS Code", image: z.vscodeImg, color: "bg-blue-50" },
+                { name: "GitHub", image: z.githubImg, color: "bg-gray-50" },
+            ]
+        },
+        {
+            category: "Database & Backend",
+            description: "Data management and queries",
+            tools: [
+                { name: "MySQL", image: z.mysqlImg, color: "bg-teal-50" },
+                { name: "SQL Server", image: z.sqlServerImg, color: "bg-teal-50" },
+            ]
+        },
+        {
+            category: "Design & Prototyping",
+            description: "UI/UX design and wireframing",
+            tools: [
+                { name: "Figma", image: z.figmaImg, color: "bg-purple-50" },
+                // { name: "Balsamiq", image: z.githubImg, color: "bg-orange-50" },
+            ]
+        },
+        {
+            category: "Documentation & Analysis",
+            description: "Business analysis and reporting",
+            tools: [
+                { name: "Microsoft Word", image: z.wordImg, color: "bg-blue-50" },
+                { name: "Microsoft Excel", image: z.excelImg, color: "bg-green-50" },
+                { name: "Google Sheets", image: z.sheetsImg, color: "bg-green-50" },
+                { name: "Canva", image: z.canvaImg, color: "bg-green-50" },
+            ]
+        }
+    ];
 
     return (
-        <div className="flex flex-col">            
-            <h3 className="text-3xl font-bold text-center text-[#5a6340] mb-8">TOOLS</h3>
-            
-            {/* Tools Grid */}
-            <div className="grid grid-cols-4 gap-6">
-                {tools.map((tool, index) => (
-                    <div key={index} className="flex flex-col items-center gap-2">
-                        <div className="w-16 h-16 bg-white rounded-xl border-2 border-gray-200 flex items-center justify-center shadow-sm hover:scale-110 transition-transform cursor-pointer p-2">
-                            <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
+        <div className="max-w-6xl mx-auto">            
+            <div className="space-y-8">
+                {toolCategories.map((category, catIndex) => (
+                    <div key={catIndex} className="bg-white rounded-2xl border-2 border-gray-100 p-6 hover:shadow-lg transition-shadow">
+                        <div className="mb-4">
+                            <h4 className="text-xl font-semibold text-gray-800 mb-1 ">
+                                {category.category}
+                            </h4>
+                            <p className="text-sm text-gray-500">{category.description}</p>
                         </div>
-                        <span className="text-xs text-gray-600 text-center whitespace-pre-line">
-                            {tool.name}
-                        </span>
+                        
+                        <div className="flex flex-wrap gap-3">
+                            {category.tools.map((tool, toolIndex) => (
+                                <div 
+                                    key={toolIndex} 
+                                    className={`${tool.color} px-4 py-3 rounded-xl border border-gray-200 flex items-center gap-3 hover:scale-105 transition-transform cursor-pointer min-w-[140px]`}
+                                >
+                                    <img src={tool.image} alt={tool.name} className="w-8 h-8 object-contain" />
+                                    <span className="text-sm font-medium text-gray-700">
+                                        {tool.name}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 ))}
             </div>
+
+            {/* Optional: Proficiency Legend */}
+            {/* <div className="mt-8 text-center text-xs text-gray-500">
+                <p>Proficient in all listed tools with hands-on project experience</p>
+            </div> */}
         </div>
-    )
-}
+    );
+};
+
 
 // ==================== CONTACT CONTENT ====================
 const ContactContent = () => {
@@ -142,21 +225,22 @@ const ContactContent = () => {
             color: "from-[#27ae60] to-[#1e8449]",
             action: () => setShowQR(true)
         },
-        {
-            icon: "📍",
-            label: "Location",
-            value: "Ho Chi Minh City, Viet Nam",
-            href: null,
-            color: "from-[#3498db] to-[#2980b9]",
-            action: null
-        }
+        // {
+        //     icon: "📍",
+        //     label: "Location",
+        //     value: "Ho Chi Minh City, Viet Nam",
+        //     href: null,
+        //     color: "from-[#3498db] to-[#2980b9]",
+        //     action: null
+        // }
     ]
 
     const socials = [
-        { image: z.linkedinImg, name: "LinkedIn", color: "bg-[#0077b5]" },
-        { image: z.githubImg, name: "GitHub", color: "bg-[#333]" },
         { image: z.facebookImg, name: "Facebook", color: "bg-[#1877f2]" },
-        { image: z.tiktokImg, name: "TikTok", color: "bg-[#000]" }
+        { image: z.instagramImg, name: "Instagram", color: "bg-[#1877f2]" },
+        { image: z.tiktokImg, name: "TikTok", color: "bg-[#000]" },
+        { image: z.linkedinImg, name: "LinkedIn", color: "bg-[#0077b5]" },
+        // { image: z.githubImg, name: "GitHub", color: "bg-[#333]" },
     ]
 
     return (
@@ -164,7 +248,7 @@ const ContactContent = () => {
             {/* QR Code Modal */}
             {showQR && (
                 <div 
-                    className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center"
+                    className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center rounded-lg"
                     onClick={() => setShowQR(false)}
                 >
                     <div 
@@ -180,7 +264,7 @@ const ContactContent = () => {
                         </div>
                         <div className="bg-white p-2 rounded-xl border-2 border-[#27ae60] shadow-inner">
                             <img 
-                                src={zaloQR} 
+                                src={z.zaloQR} 
                                 alt="Zalo QR Code" 
                                 className="w-full h-auto rounded-lg"
                             />
@@ -201,7 +285,7 @@ const ContactContent = () => {
                     <span className="text-3xl">👋</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#2c3e50]">Let's Connect!</h3>
-                <p className="text-gray-500 text-sm mt-1">Rất vui được kết nối với bạn</p>
+                <p className="text-gray-500 text-sm mt-1">Glad to connect with you</p>
             </div>
 
             {/* Contact Methods */}
@@ -212,7 +296,7 @@ const ContactContent = () => {
                         <Component
                             key={index}
                             href={method.href || undefined}
-                            target={method.href ? "_blank" : undefined}
+                            // target={method.href ? "_blank" : undefined}
                             onClick={method.action || undefined}
                             className={`flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 w-full text-left ${!method.href && !method.action ? 'pointer-events-none' : 'cursor-pointer'}`}
                         >
@@ -251,7 +335,7 @@ const ContactContent = () => {
 
             {/* CTA */}
             <div className="bg-gradient-to-r from-[#5a6340] to-[#7a8a50] rounded-xl p-4 text-center shadow-lg">
-                <p className="text-white/90 text-sm mb-2">Sẵn sàng hợp tác?</p>
+                <p className="text-white/90 text-sm mb-2">Ready to collaborate?</p>
                 <p className="text-white font-bold">Let's build something amazing together! 🚀</p>
             </div>
         </div>
@@ -317,34 +401,34 @@ const ResumeContent = () => {
         {
             name: "Portfolio Website",
             tech: "React, TailwindCSS",
-            description: "Personal portfolio với thiết kế sáng tạo"
+            description: "Personal portfolio with creative design"
         },
         {
-            name: "E-commerce App",
-            tech: "Next.js, MongoDB",
-            description: "Full-stack shopping platform"
+            name: "#",
+            tech: "#",
+            description: "#"
         },
         {
-            name: "Task Manager",
-            tech: "Vue.js, Firebase",
-            description: "Real-time task management application"
+            name: "#",
+            tech: "#",
+            description: "#"
         }
     ]
 
     const certificates = [
         {
-            name: "React Developer Certificate",
-            issuer: "Meta",
+            name: "#",
+            issuer: "#",
             year: "2023"
         },
         {
-            name: "JavaScript Algorithms",
-            issuer: "freeCodeCamp",
+            name: "#",
+            issuer: "#",
             year: "2022"
         },
         {
-            name: "Responsive Web Design",
-            issuer: "freeCodeCamp",
+            name: "#",
+            issuer: "#",
             year: "2022"
         }
     ]
@@ -499,40 +583,40 @@ const FolderItem = ({ item, onClick }) => {
 
 const socialLinks = [
     {
-        name: "LinkedIn",
-        url: "https://linkedin.com/in/your-profile",
-        image: z.linkedinImg,
-        bgColor: "#0077B5",
-        shadowColor: "#005885"
-    },
-    {
-        name: "GitHub",
-        url: "https://github.com/your-profile",
-        image: z.githubImg,
-        bgColor: "#2d333b",
-        shadowColor: "#1c2127"
-    },
-    {
         name: "Facebook",
-        url: "https://facebook.com/your-profile",
+        url: "https://www.facebook.com/vanhthuww/",
         image: z.facebookImg,
         bgColor: "#1877F2",
         shadowColor: "#0d5cbd"
     },
     {
-        name: "TikTok",
-        url: "https://tiktok.com/@your-profile",
-        image: z.tiktokImg,
-        bgColor: "#fe2c55",
-        shadowColor: "#c91e42"
-    }
+        name: "GitHub",
+        url: "#",
+        image: z.githubImg,
+        bgColor: "#2d333b",
+        shadowColor: "#1c2127"
+    },
+    {
+        name: "LinkedIn",
+        url: "#",
+        image: z.linkedinImg,
+        bgColor: "#0077B5",
+        shadowColor: "#005885"
+    },
+    // {
+    //     name: "TikTok",
+    //     url: "#",
+    //     image: z.tiktokImg,
+    //     bgColor: "#fe2c55",
+    //     shadowColor: "#c91e42"
+    // }
 ]
 
 const SocialBlock = ({ social }) => {
     return (
         <a
             href={social.url}
-            target="_blank"
+            // target="_blank"
             className="group relative block"
         >
             
@@ -561,7 +645,7 @@ const SocialBlock = ({ social }) => {
 // ==================== MAP CONTENT BY FOLDER NAME ====================
 const contentMap = {
     profile: <ProfileContent />,
-    works: <WorksContent />,
+    tools: <ToolsContent />,
     contact: <ContactContent />,
     resume: <ResumeContent />
 }

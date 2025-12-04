@@ -1,25 +1,15 @@
 import React, { useState } from "react"
-
-// Import social images
-import linkedinImg from "../assets/social/linkedin.png"
-import githubImg from "../assets/social/github.png"
-import facebookImg from "../assets/social/facebook.png"
-import tiktokImg from "../assets/social/tiktok.png"
-import removeImg from "../assets/social/remove.png"
-
-// Import folder images
-import folderImg from "../assets/social/folder.png"
-import geekImg from "../assets/social/geek.png"
+import * as z from "../assets/index"
 
 // Menu items with folders
 const menuItems = {
     left: [
-        { name: "profile", image: geekImg, isSpecial: true },
-        { name: "works", image: folderImg }
+        { name: "profile", image: z.geekImg, isSpecial: true },
+        { name: "works", image: z.folderImg }
     ],
     right: [
-        { name: "contact", image: folderImg },
-        { name: "resume", image: folderImg }
+        { name: "contact", image: z.folderImg },
+        { name: "resume", image: z.folderImg }
     ]
 }
 
@@ -50,7 +40,7 @@ const Window = ({ isOpen, onClose, path, children }) => {
                         onClick={onClose}
                         className="w-8 h-8 bg-[#e74c3c] hover:bg-[#c0392b] rounded-md flex items-center justify-center transition-colors"
                     >
-                        <img src={removeImg} alt="remove" className="w-8 h-8" />
+                        <img src={z.removeImg} alt="remove" className="w-8 h-8" />
                     </button>
                 </div>
 
@@ -73,7 +63,7 @@ const ProfileContent = () => {
             {/* Avatar */}
             <div className="w-40 h-40 rounded-full bg-gray-300 overflow-hidden flex-shrink-0">
                 <img 
-                    src={geekImg} 
+                    src={z.geekImg} 
                     alt="Profile"
                     className="w-full h-full object-cover"
                 />
@@ -99,14 +89,14 @@ const ProfileContent = () => {
 // ==================== WORKS CONTENT ====================
 const WorksContent = () => {
     const tools = [
-        { name: "GitHub", icon: "🐙" },
-        { name: "VS Code", icon: "💻" },
-        { name: "Figma", icon: "🎨" },
-        { name: "Canva", icon: "🖼️" },
-        { name: "Google\nDocs", icon: "📄" },
-        { name: "Google\nSheets", icon: "📊" },
-        { name: "Microsoft\nWord", icon: "📝" },
-        { name: "Microsoft\nExcel", icon: "📈" },
+        { name: "GitHub", icon: z.githubImg },
+        { name: "VS Code", icon: z.githubImg },
+        { name: "Figma", icon: z.githubImg },
+        { name: "Canva", icon: z.githubImg },
+        { name: "Google\nDocs", icon: z.githubImg },
+        { name: "Google\nSheets", icon: z.githubImg },
+        { name: "Microsoft\nWord", icon: z.githubImg },
+        { name: "Microsoft\nExcel", icon: z.githubImg },
     ]
 
     return (
@@ -117,8 +107,8 @@ const WorksContent = () => {
             <div className="grid grid-cols-4 gap-6">
                 {tools.map((tool, index) => (
                     <div key={index} className="flex flex-col items-center gap-2">
-                        <div className="w-16 h-16 bg-white rounded-xl border-2 border-gray-200 flex items-center justify-center text-3xl shadow-sm hover:scale-110 transition-transform cursor-pointer">
-                            {tool.icon}
+                        <div className="w-16 h-16 bg-white rounded-xl border-2 border-gray-200 flex items-center justify-center shadow-sm hover:scale-110 transition-transform cursor-pointer p-2">
+                            <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
                         </div>
                         <span className="text-xs text-gray-600 text-center whitespace-pre-line">
                             {tool.name}
@@ -132,39 +122,79 @@ const WorksContent = () => {
 
 // ==================== CONTACT CONTENT ====================
 const ContactContent = () => {
+    const [showQR, setShowQR] = useState(false)
+
     const contactMethods = [
         {
             icon: "📧",
             label: "Email",
             value: "voanhthu743@gmail.com",
-            href: "mailto:voanhthu743@gmail.com",
-            color: "from-[#e74c3c] to-[#c0392b]"
+            // href: "https://mail.google.com/mail/?view=cm&to=voanhthu743@gmail.com",
+            href: "#",
+            color: "from-[#e74c3c] to-[#c0392b]",
+            action: null
         },
         {
             icon: "📱",
-            label: "Phone",
-            value: "+84 123 456 789",
-            href: "tel:+84123456789",
-            color: "from-[#27ae60] to-[#1e8449]"
+            label: "Zalo",
+            value: "Nhấn để xem QR Code",
+            href: null,
+            color: "from-[#27ae60] to-[#1e8449]",
+            action: () => setShowQR(true)
         },
         {
             icon: "📍",
             label: "Location",
-            value: "Viet Nam",
+            value: "Ho Chi Minh City, Viet Nam",
             href: null,
-            color: "from-[#3498db] to-[#2980b9]"
+            color: "from-[#3498db] to-[#2980b9]",
+            action: null
         }
     ]
 
     const socials = [
-        { icon: "🔗", name: "LinkedIn", color: "bg-[#0077b5]" },
-        { icon: "🐙", name: "GitHub", color: "bg-[#333]" },
-        { icon: "📘", name: "Facebook", color: "bg-[#1877f2]" },
-        { icon: "🎵", name: "TikTok", color: "bg-[#000]" }
+        { image: z.linkedinImg, name: "LinkedIn", color: "bg-[#0077b5]" },
+        { image: z.githubImg, name: "GitHub", color: "bg-[#333]" },
+        { image: z.facebookImg, name: "Facebook", color: "bg-[#1877f2]" },
+        { image: z.tiktokImg, name: "TikTok", color: "bg-[#000]" }
     ]
 
     return (
         <div className="flex flex-col gap-5">
+            {/* QR Code Modal */}
+            {showQR && (
+                <div 
+                    className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center"
+                    onClick={() => setShowQR(false)}
+                >
+                    <div 
+                        className="bg-white rounded-2xl p-6 shadow-2xl max-w-xs mx-4"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="text-center mb-4">
+                            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#27ae60] to-[#1e8449] mb-2">
+                                <span className="text-2xl">📱</span>
+                            </div>
+                            <h4 className="font-bold text-[#2c3e50] text-lg">Scan Zalo code</h4>
+                            <p className="text-gray-500 text-sm">Connect with me to talk about work</p>
+                        </div>
+                        <div className="bg-white p-2 rounded-xl border-2 border-[#27ae60] shadow-inner">
+                            <img 
+                                src={zaloQR} 
+                                alt="Zalo QR Code" 
+                                className="w-full h-auto rounded-lg"
+                            />
+                        </div>
+                        <button 
+                            onClick={() => setShowQR(false)}
+                            className="mt-4 w-full py-2 bg-gradient-to-r from-[#27ae60] to-[#1e8449] text-white rounded-xl font-medium hover:opacity-90 transition-opacity"
+                        >
+                            Đóng
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* Header */}
             <div className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#e67e22] to-[#d35400] mb-3 shadow-lg">
@@ -176,26 +206,31 @@ const ContactContent = () => {
 
             {/* Contact Methods */}
             <div className="space-y-3">
-                {contactMethods.map((method, index) => (
-                    <a
-                        key={index}
-                        href={method.href}
-                        className={`flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 ${!method.href ? 'pointer-events-none' : ''}`}
-                    >
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${method.color} flex items-center justify-center shadow-md`}>
-                            <span className="text-xl">{method.icon}</span>
-                        </div>
-                        <div className="flex-1">
-                            <p className="text-xs text-gray-400 uppercase tracking-wider">{method.label}</p>
-                            <p className="font-semibold text-[#2c3e50]">{method.value}</p>
-                        </div>
-                        {method.href && (
-                            <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                                <span className="text-gray-400">→</span>
+                {contactMethods.map((method, index) => {
+                    const Component = method.href ? 'a' : 'button'
+                    return (
+                        <Component
+                            key={index}
+                            href={method.href || undefined}
+                            target={method.href ? "_blank" : undefined}
+                            onClick={method.action || undefined}
+                            className={`flex items-center gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 w-full text-left ${!method.href && !method.action ? 'pointer-events-none' : 'cursor-pointer'}`}
+                        >
+                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${method.color} flex items-center justify-center shadow-md`}>
+                                <span className="text-xl">{method.icon}</span>
                             </div>
-                        )}
-                    </a>
-                ))}
+                            <div className="flex-1">
+                                <p className="text-xs text-gray-400 uppercase tracking-wider">{method.label}</p>
+                                <p className="font-semibold text-[#2c3e50]">{method.value}</p>
+                            </div>
+                            {(method.href || method.action) && (
+                                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                                    <span className="text-gray-400">→</span>
+                                </div>
+                            )}
+                        </Component>
+                    )
+                })}
             </div>
 
             {/* Social Links */}
@@ -205,10 +240,10 @@ const ContactContent = () => {
                     {socials.map((social, index) => (
                         <button
                             key={index}
-                            className={`w-11 h-11 ${social.color} rounded-xl flex items-center justify-center text-white shadow-md hover:scale-110 transition-transform duration-300`}
+                            className={`w-11 h-11 rounded-xl flex items-center justify-center text-white shadow-md hover:scale-110 transition-transform duration-300`}
                             title={social.name}
                         >
-                            <span className="text-lg">{social.icon}</span>
+                            <img src={social.image} alt={social.name} className="w-9 h-9 object-contain" />
                         </button>
                     ))}
                 </div>
@@ -265,15 +300,15 @@ const ResumeContent = () => {
 
     const experiences = [
         {
-            role: "Frontend Developer",
-            company: "Tech Company",
-            period: "2023 - Present",
-            description: "Building modern web applications with React & TailwindCSS"
+            role: "Web Developer",
+            company: "VLH Company",
+            period: "3/2025 - Present",
+            description: "Building modern web applications with React & Nodejs"
         },
         {
-            role: "Junior Developer",
-            company: "Startup Inc",
-            period: "2022 - 2023",
+            role: "Java Intern",
+            company: "VNPT IT 5",
+            period: "6/2024 - 8/2024",
             description: "Developed responsive UI components and REST API integration"
         }
     ]
@@ -466,28 +501,28 @@ const socialLinks = [
     {
         name: "LinkedIn",
         url: "https://linkedin.com/in/your-profile",
-        image: linkedinImg,
+        image: z.linkedinImg,
         bgColor: "#0077B5",
         shadowColor: "#005885"
     },
     {
         name: "GitHub",
         url: "https://github.com/your-profile",
-        image: githubImg,
+        image: z.githubImg,
         bgColor: "#2d333b",
         shadowColor: "#1c2127"
     },
     {
         name: "Facebook",
         url: "https://facebook.com/your-profile",
-        image: facebookImg,
+        image: z.facebookImg,
         bgColor: "#1877F2",
         shadowColor: "#0d5cbd"
     },
     {
         name: "TikTok",
         url: "https://tiktok.com/@your-profile",
-        image: tiktokImg,
+        image: z.tiktokImg,
         bgColor: "#fe2c55",
         shadowColor: "#c91e42"
     }
@@ -498,7 +533,6 @@ const SocialBlock = ({ social }) => {
         <a
             href={social.url}
             target="_blank"
-            rel="noopener noreferrer"
             className="group relative block"
         >
             
@@ -507,11 +541,11 @@ const SocialBlock = ({ social }) => {
                 className="relative w-16 h-16 rounded-xl flex items-center justify-center 
                            transition-all duration-150 ease-out
                            group-hover:translate-y-1 group-active:translate-y-2
-                           border-2 border-black/20"
-                style={{ backgroundColor: social.bgColor }}
+                           border-2 border-black/20 bg-white/20"
+                // style={{ backgroundColor: social.bgColor }}
             >
                 {/* Inner highlight */}
-                <div className="absolute inset-1 rounded-xl bg-white/10 pointer-events-none" />
+                <div className="absolute inset-1 rounded-xl pointer-events-none" />
                 
                 {/* Icon */}
                 <img 

@@ -13,7 +13,7 @@ const menuItems = {
     ]
 }
 
-// ==================== WINDOW COMPONENT ========================
+ // ==================== WINDOW COMPONENT ========================
 const Window = ({ isOpen, onClose, path, children }) => {
     if (!isOpen) return null
 
@@ -117,10 +117,22 @@ const socialLinks = [
     // }
 ]
 
-const SocialBlock = ({ social }) => {
+const SocialBlock = ({ social, onEmptyLink }) => {
+    const isEmptyLink = !social.url || social.url === "#"
+
+    const handleClick = (e) => {
+        if (isEmptyLink) {
+            e.preventDefault()
+            onEmptyLink && onEmptyLink()
+        }
+    }
+
     return (
         <a
-            href={social.url}
+            href={isEmptyLink ? "#" : social.url}
+            target={isEmptyLink ? undefined : "_blank"}
+            rel={isEmptyLink ? undefined : "noopener noreferrer"}
+            onClick={handleClick}
             className="group relative block"
         >
             {/* Main block - Responsive */}
@@ -155,6 +167,7 @@ const contentMap = {
 
 const Portfolio = () => {
     const [activeWindow, setActiveWindow] = useState(null)
+    const [showSecretPopup, setShowSecretPopup] = useState(false)
 
     const handleFolderClick = (name) => {
         setActiveWindow(name)
@@ -162,6 +175,14 @@ const Portfolio = () => {
 
     const handleCloseWindow = () => {
         setActiveWindow(null)
+    }
+
+    const handleEmptyLink = () => {
+        setShowSecretPopup(true)
+    }
+
+    const handleCloseSecretPopup = () => {
+        setShowSecretPopup(false)
     }
 
     return (
@@ -228,7 +249,11 @@ const Portfolio = () => {
                     {/* Social blocks container - Responsive gap */}
                     <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
                         {socialLinks.map((social, index) => (
-                            <SocialBlock key={index} social={social} />
+                            <SocialBlock 
+                                key={index} 
+                                social={social} 
+                                onEmptyLink={handleEmptyLink}
+                            />
                         ))}
                     </div>
                 </div>
@@ -241,6 +266,12 @@ const Portfolio = () => {
                 >
                     {activeWindow && contentMap[activeWindow]}
                 </Window>
+
+                {/* Secret Popup for empty links */}
+                <c.SecretPopup 
+                    isOpen={showSecretPopup} 
+                    onClose={handleCloseSecretPopup} 
+                />
             </div>
         </>
     )

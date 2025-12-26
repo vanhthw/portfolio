@@ -1,9 +1,11 @@
 // components/Contact.jsx
 import React, { useState } from "react"
 import * as z from "../assets/index"
+import SecretPopup from "./SecretPopup"
 
 const ContactContent = () => {
     const [showQR, setShowQR] = useState(false)
+    const [showSecretPopup, setShowSecretPopup] = useState(false)
 
     const contactMethods = [
         {
@@ -25,11 +27,19 @@ const ContactContent = () => {
     ]
 
     const socials = [
-        { image: z.facebookImg, name: "Facebook", color: "bg-[#1877f2]" },
-        { image: z.instagramImg, name: "Instagram", color: "bg-[#1877f2]" },
-        { image: z.tiktokImg, name: "TikTok", color: "bg-[#000]" },
-        { image: z.linkedinImg, name: "LinkedIn", color: "bg-[#0077b5]" },
+        { image: z.facebookImg, name: "Facebook", color: "bg-[#1877f2]", url: "https://www.facebook.com/vanhthuww/" },
+        { image: z.instagramImg, name: "Instagram", color: "bg-[#1877f2]", url: "#" },
+        { image: z.tiktokImg, name: "TikTok", color: "bg-[#000]", url: "#" },
+        { image: z.linkedinImg, name: "LinkedIn", color: "bg-[#0077b5]", url: "#" },
     ]
+
+    const handleSocialClick = (url) => {
+        if (!url || url === "#") {
+            setShowSecretPopup(true)
+        } else {
+            window.open(url, "_blank", "noopener,noreferrer")
+        }
+    }
 
     return (
         <div className="flex flex-col gap-3 sm:gap-4 md:gap-5">
@@ -111,6 +121,7 @@ const ContactContent = () => {
                     {socials.map((social, index) => (
                         <button
                             key={index}
+                            onClick={() => handleSocialClick(social.url)}
                             className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-lg sm:rounded-xl flex items-center justify-center text-white shadow-md hover:scale-110 transition-transform duration-300"
                             title={social.name}
                         >
@@ -125,6 +136,12 @@ const ContactContent = () => {
                 <p className="text-white/90 text-xs sm:text-sm mb-1 sm:mb-2">Ready to collaborate?</p>
                 <p className="text-white font-bold text-sm sm:text-base">Let's build something amazing together! 🚀</p>
             </div>
+
+            {/* Secret Popup */}
+            <SecretPopup 
+                isOpen={showSecretPopup} 
+                onClose={() => setShowSecretPopup(false)} 
+            />
         </div>
     )
 }

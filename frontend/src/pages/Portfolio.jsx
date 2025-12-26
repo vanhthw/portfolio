@@ -44,13 +44,18 @@ const Window = ({ isOpen, onClose, path, children }) => {
                     </button>
                 </div>
 
-                {/* Content Area - Responsive height */}
+                {/* Content Area - Responsive height with dvh for mobile */}
                 <div
                     className="bg-[#f5f0e8] rounded-b-lg border-t-0 border-[#c0392b] 
                                p-3 sm:p-4 md:p-6 
-                               h-[50vh] sm:h-[55vh] md:h-[60vh] max-h-[500px]
+                               max-h-[60dvh] sm:max-h-[55dvh] md:max-h-[500px]
                                overflow-y-auto"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    style={{ 
+                        scrollbarWidth: 'none', 
+                        msOverflowStyle: 'none',
+                        height: 'auto',
+                        minHeight: '200px'
+                    }}
                 >
                     {children}
                 </div>
@@ -161,7 +166,11 @@ const Portfolio = () => {
 
     return (
         <>
-            <div className="h-screen w-screen overflow-hidden bg-[#f5f0e8] relative">
+            {/* Using dvh for proper mobile viewport height */}
+            <div 
+                className="w-screen overflow-hidden bg-[#f5f0e8] relative"
+                style={{ height: '100dvh', minHeight: '-webkit-fill-available' }}
+            >
                 {/* Grid background - Responsive grid size */}
                 <div
                     className="absolute inset-0 opacity-30"

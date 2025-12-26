@@ -4,7 +4,7 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import Portfolio from "./components/Portfolio";
+import Portfolio from "./pages/Portfolio";
 
 
 const App = () => {

@@ -49,7 +49,7 @@ const Window = ({ isOpen, onClose, path, children }) => {
                 <div
                     className="bg-[#f5f0e8] rounded-b-lg border-t-0 border-[#c0392b] 
                                p-3 sm:p-4 md:p-6 
-                               max-h-[60dvh] sm:max-h-[55dvh] md:max-h-[500px]
+                               max-h-[60dvh] sm:max-h-[55dvh] md:max-h-[400px]
                                overflow-y-auto"
                     style={{
                         scrollbarWidth: 'none',

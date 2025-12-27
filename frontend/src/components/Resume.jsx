@@ -43,13 +43,13 @@ const ResumeContent = () => {
             role: "Web Developer",
             company: "VLH Company",
             period: "3/2025 - Present",
-            description: "Building modern web applications with React & Nodejs"
+            description: "????"
         },
         {
             role: "Java Intern",
             company: "VNPT IT 5",
             period: "6/2024 - 8/2024",
-            description: "Developed responsive UI components and REST API integration"
+            description: "????"
         }
     ]
 
@@ -102,8 +102,8 @@ const ResumeContent = () => {
         <div className="flex flex-col gap-3 sm:gap-4">
             {/* Header - Responsive */}
             <div className="flex items-center gap-3 sm:gap-4 pb-3 sm:pb-4 border-b-2 border-dashed border-[#5a6340]/30">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#e67e22] to-[#d35400] flex items-center justify-center text-white text-base sm:text-lg md:text-xl font-bold shadow-lg flex-shrink-0">
-                    VT
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-linear-to-br from-[#e67e22] to-[#d35400] flex items-center justify-center text-white text-base sm:text-lg md:text-xl font-bold shadow-lg shrink-0">
+                    AT
                 </div>
                 <div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#2c3e50]">Võ Anh Thư</h3>
@@ -124,7 +124,7 @@ const ResumeContent = () => {
                     <div className="space-y-2 sm:space-y-3 relative before:absolute before:left-[5px] sm:before:left-[7px] before:top-2 before:bottom-2 before:w-0.5 before:bg-[#e67e22]/30">
                         {experiences.map((exp, index) => (
                             <div key={index} className="relative pl-4 sm:pl-6">
-                                <div className="absolute left-0 top-1.5 w-[10px] h-[10px] sm:w-[14px] sm:h-[14px] rounded-full bg-white border-2 sm:border-[3px] border-[#e67e22] z-10"></div>
+                                <div className="absolute left-0 top-1.5 w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-white border-2 sm:border-[3px] border-[#e67e22] z-10"></div>
                                 <div className="bg-[#f8f9fa] p-2 sm:p-3 rounded-lg">
                                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                                         <div>
@@ -170,7 +170,7 @@ const ResumeContent = () => {
                     <div className="grid gap-1.5 sm:gap-2">
                         {certificates.map((cert, index) => (
                             <div key={index} className="flex items-center gap-2 sm:gap-3 bg-[#f8f9fa] p-2 sm:p-3 rounded-lg">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#f39c12] to-[#e67e22] flex items-center justify-center text-white text-xs sm:text-sm flex-shrink-0">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-linear-to-br from-[#f39c12] to-[#e67e22] flex items-center justify-center text-white text-xs sm:text-sm shrink-0">
                                     🎖️
                                 </div>
                                 <div className="flex-1 min-w-0">
@@ -192,7 +192,7 @@ const ResumeContent = () => {
                 >
                     <div className="space-y-2 sm:space-y-3">
                         {education.map((edu, index) => (
-                            <div key={index} className="bg-[#f8f9fa] p-2 sm:p-3 md:p-4 rounded-lg border-l-3 sm:border-l-4 border-[#3498db]">
+                            <div key={index} className="bg-[#f8f9fa] p-2 sm:p-2 md:p-4 rounded-lg border-l-3 sm:border-l-4 border-[#3498db]">
                                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                                     <div>
                                         <p className="font-semibold text-[#2c3e50] text-xs sm:text-sm md:text-base">{edu.degree}</p>
@@ -208,7 +208,7 @@ const ResumeContent = () => {
             </div>
 
             {/* Download Button - Responsive */}
-            <button className="group w-full py-2 sm:py-2.5 md:py-3 bg-gradient-to-r from-[#5a6340] to-[#7a8a50] text-white rounded-lg sm:rounded-xl font-medium hover:from-[#4a5335] hover:to-[#6a7a45] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mt-1 sm:mt-2 text-sm sm:text-base">
+            <button className="group w-full py-2 sm:py-2.5 md:py-3 bg-linear-to-r from-[#5a6340] to-[#7a8a50] text-white rounded-lg sm:rounded-xl font-medium hover:from-[#4a5335] hover:to-[#6a7a45] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mt-1 sm:mt-2 text-sm sm:text-base">
                 <span className="group-hover:animate-bounce">📥</span>
                 <span>Download Full CV</span>
             </button>

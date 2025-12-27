@@ -7,7 +7,7 @@ const ProfileContent = () => {
     return (
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 p-2 sm:p-4">
             {/* Avatar - Responsive size */}
-            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full bg-gray-300 overflow-hidden flex-shrink-0">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full bg-gray-300 overflow-hidden shrink-0">
                 <img
                     src={z.avatarImg}
                     alt="Profile"
@@ -28,15 +28,15 @@ const ProfileContent = () => {
                 <p className="text-gray-600 italic text-xs sm:text-sm border-l-4 border-[#e67e22] pl-3 mt-1 sm:mt-2 text-left">
                     {/* "Code is like a puzzle, and I'm the puzzle solver" */}
                     <Typewriter
-                                options={{
-                                    strings: ["Code is like a puzzle, and I'm the puzzle solver."],
-                                    autoStart: true,
-                                    loop: true,
-                                    delay: 80,
-                                    deleteSpeed: 10,
-                                    pauseFor: 1000,
-                                }}
-                            />
+                        options={{
+                            strings: ["Code is like a puzzle, and I'm the puzzle solver."],
+                            autoStart: true,
+                            loop: true,
+                            delay: 80,
+                            deleteSpeed: 10,
+                            pauseFor: 1000,
+                        }}
+                    />
                 </p>
                 <div className="flex justify-center sm:justify-start gap-4 text-xs text-gray-500 mt-1 sm:mt-2">
                     <span>Ho Chi Minh City, Viet Nam

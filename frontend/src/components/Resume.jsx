@@ -107,7 +107,7 @@ const ResumeContent = () => {
                 </div>
                 <div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#2c3e50]">Võ Anh Thư</h3>
-                    <p className="text-[#e67e22] font-medium text-xs sm:text-sm">Web Developer</p>
+                    <p className="text-[#e67e22] font-medium text-xs sm:text-sm">Business Analyst</p>
                 </div>
             </div>
 

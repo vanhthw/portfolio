@@ -1,42 +1,50 @@
 // components/Tools.jsx
+/*
+    Mục đích của cái trang này 
+    1. BA làm gì ??? 
+    2. BA dùng tools gì để giải quyết vấn đề ???
+    3. Có thể dùng để giải quyết khi làm thực tế không ??? 
+*/
 import React from "react"
 import * as z from "../assets/index"
 
 const ToolsContent = () => {
     const toolCategories = [
         {
-            category: "Development & Version Control",
-            description: "Coding and source code management",
+            category: "Project Management & Documentation",
+            description: "Manage project requests, track progress, and archive project documents.",
             tools: [
-                { name: "VS Code", image: z.vscodeImg, color: "bg-blue-50" },
-                { name: "GitHub", image: z.githubImg, color: "bg-gray-50" },
+                { name: "Jira", image: z.jiraImg, color: "bg-blue-50" },
+                { name: "Confluence", image: z.confluenceImg, color: "bg-gray-50" },
+                { name: "Docs", image: z.docImg, color: "bg-gray-50" },
             ]
         },
         {
-            category: "Database & Backend",
-            description: "Data management and queries",
+            category: "Process & Business Modeling",
+            description: "Process and business modeling to understand and optimize workflows.",
             tools: [
-                { name: "MySQL", image: z.mysqlImg, color: "bg-teal-50" },
-                { name: "SQL Server", image: z.sqlServerImg, color: "bg-teal-50" },
-            ]
+                { name: "Draw.io", image: z.drawioImg, color: "bg-blue-50" },
+                { name: "Microsoft Visio", image: z.visioImg, color: "bg-gray-50" },]
         },
         {
-            category: "Design & Prototyping",
-            description: "UI/UX design and wireframing",
+            category: "Solution Design & API Collaboration",
+            description: "Wireframe, user flow, and API testing.",
             tools: [
                 { name: "Figma", image: z.figmaImg, color: "bg-purple-50" },
+                { name: "Postman", image: z.postmanImg, color: "bg-purple-50" },
+                { name: "Swagger", image: z.swaggerImg, color: "bg-purple-50" },
+
             ]
         },
         {
-            category: "Documentation & Analysis",
-            description: "Business analysis and reporting",
+            category: "Data analysis & Reporting",
+            description: "Analyzing data and building reports to support decision-making.",
             tools: [
-                { name: "Microsoft Word", image: z.wordImg, color: "bg-blue-50" },
-                { name: "Microsoft Excel", image: z.excelImg, color: "bg-green-50" },
-                { name: "Google Sheets", image: z.sheetsImg, color: "bg-green-50" },
-                { name: "Canva", image: z.canvaImg, color: "bg-green-50" },
+                { name: "Power BI", image: z.pbiImg, color: "bg-teal-50" },
+                { name: "SQL Server/MySQL", image: z.sqlServerImg, color: "bg-teal-50" },
+                { name: "Excel/Sheets", image: z.sheetsImg, color: "bg-teal-50" },
             ]
-        }
+        },
     ];
 
     return (

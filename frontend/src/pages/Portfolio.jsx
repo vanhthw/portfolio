@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import * as z from "../assets/index"
 import * as c from "../components/index"
+
 // Menu items with folders
 const menuItems = {
     left: [
@@ -13,7 +14,7 @@ const menuItems = {
     ]
 }
 
- // ==================== WINDOW COMPONENT ========================
+// ==================== WINDOW COMPONENT ========================
 const Window = ({ isOpen, onClose, path, children }) => {
     if (!isOpen) return null
 
@@ -38,7 +39,7 @@ const Window = ({ isOpen, onClose, path, children }) => {
                     </span>
                     <button
                         onClick={onClose}
-                        className="w-7 h-7 sm:w-8 sm:h-8 bg-[#e74c3c] hover:bg-[#c0392b] rounded-md flex items-center justify-center transition-colors flex-shrink-0"
+                        className="w-7 h-7 sm:w-8 sm:h-8 bg-[#e74c3c] hover:bg-[#c0392b] rounded-md flex items-center justify-center transition-colors shrink-0"
                     >
                         <img src={z.removeImg} alt="remove" className="w-7 h-7 sm:w-8 sm:h-8" />
                     </button>
@@ -50,8 +51,8 @@ const Window = ({ isOpen, onClose, path, children }) => {
                                p-3 sm:p-4 md:p-6 
                                max-h-[60dvh] sm:max-h-[55dvh] md:max-h-[500px]
                                overflow-y-auto"
-                    style={{ 
-                        scrollbarWidth: 'none', 
+                    style={{
+                        scrollbarWidth: 'none',
                         msOverflowStyle: 'none',
                         height: 'auto',
                         minHeight: '200px'
@@ -188,7 +189,7 @@ const Portfolio = () => {
     return (
         <>
             {/* Using dvh for proper mobile viewport height */}
-            <div 
+            <div
                 className="w-screen overflow-hidden bg-[#f5f0e8] relative"
                 style={{ height: '100dvh', minHeight: '-webkit-fill-available' }}
             >
@@ -225,13 +226,35 @@ const Portfolio = () => {
                         </div>
 
                         {/* Center - PORTFOLIO text - Responsive size */}
-                        <h1
+                        {/* <h1
                             className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl 
                                        font-normal tracking-[0.08em] sm:tracking-[0.1em] md:tracking-[0.15em] 
                                        text-[#6b7a45] select-none text-center"
                         >
                             PORTFOLIO
-                        </h1>
+                        </h1> */}
+                        {/* Center - Text Block */}
+                        <div className="flex flex-col items-center justify-center z-10">
+                            {/* 1. Tiêu đề chính */}
+                            <h1
+                                className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl 
+                                    font-normal tracking-[0.08em] sm:tracking-widest md:tracking-[0.15em] 
+                                    text-[#6b7a45] select-none text-center"
+                            >
+                                PORTFOLIO
+                            </h1>
+
+                            {/* 2. Dòng chữ nhỏ nằm dưới và căn giữa */}
+                            <span className="mt-1 sm:mt-3 
+                                text-[#6b7a45] 
+                                text-[10px] sm:text-xs md:text-sm 
+                                font-mono tracking-[0.2em] uppercase opacity-70
+                                text-center"
+                            >
+                                developed by vanhthuww
+                            </span>
+                        </div>
+
 
                         {/* Desktop: Right folders */}
                         <div className="hidden md:flex flex-col gap-8 lg:gap-12">
@@ -249,9 +272,9 @@ const Portfolio = () => {
                     {/* Social blocks container - Responsive gap */}
                     <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
                         {socialLinks.map((social, index) => (
-                            <SocialBlock 
-                                key={index} 
-                                social={social} 
+                            <SocialBlock
+                                key={index}
+                                social={social}
                                 onEmptyLink={handleEmptyLink}
                             />
                         ))}
@@ -268,9 +291,9 @@ const Portfolio = () => {
                 </Window>
 
                 {/* Secret Popup for empty links */}
-                <c.SecretPopup 
-                    isOpen={showSecretPopup} 
-                    onClose={handleCloseSecretPopup} 
+                <c.SecretPopup
+                    isOpen={showSecretPopup}
+                    onClose={handleCloseSecretPopup}
                 />
             </div>
         </>

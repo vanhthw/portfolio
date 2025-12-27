@@ -1,6 +1,7 @@
 // components/Profile.jsx
 import React from "react"
 import * as z from "../assets/index"
+import Typewriter from "typewriter-effect"
 
 const ProfileContent = () => {
     return (
@@ -21,11 +22,21 @@ const ProfileContent = () => {
                     Võ Anh Thư
                     <span className="text-gray-700 text-sm sm:text-base md:text-lg"> (Sofia)</span>
                 </h2>
-                <p className="text-gray-700 uppercase tracking-wider text-xs sm:text-sm mt-1 sm:mt-2">
-                    I'M A WEB DEVELOPER
+                <p className="text-gray-700 uppercase tracking-wider font-semibold text-xs sm:text-sm mt-1 sm:mt-2">
+                    I'M A BUSINESS ANALYST.
                 </p>
                 <p className="text-gray-600 italic text-xs sm:text-sm border-l-4 border-[#e67e22] pl-3 mt-1 sm:mt-2 text-left">
-                    "Code is like a puzzle, and I'm the puzzle solver"
+                    {/* "Code is like a puzzle, and I'm the puzzle solver" */}
+                    <Typewriter
+                                options={{
+                                    strings: ["Code is like a puzzle, and I'm the puzzle solver."],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 80,
+                                    deleteSpeed: 10,
+                                    pauseFor: 1000,
+                                }}
+                            />
                 </p>
                 <div className="flex justify-center sm:justify-start gap-4 text-xs text-gray-500 mt-1 sm:mt-2">
                     <span>Ho Chi Minh City, Viet Nam

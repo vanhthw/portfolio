@@ -19,7 +19,7 @@ const ContactContent = () => {
         {
             icon: "📱",
             label: "Zalo",
-            value: "Nhấn để xem QR Code",
+            value: "Click to view QR code",
             href: null,
             color: "from-[#27ae60] to-[#1e8449]",
             action: () => setShowQR(true)
@@ -46,7 +46,7 @@ const ContactContent = () => {
             {/* QR Code Modal */}
             {showQR && (
                 <div
-                    className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center rounded-lg"
+                    className="fixed inset-0 bg-black/50 z-100 flex items-center justify-center rounded-lg"
                     onClick={() => setShowQR(false)}
                 >
                     <div
@@ -54,7 +54,7 @@ const ContactContent = () => {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="text-center mb-3 sm:mb-4">
-                            <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#27ae60] to-[#1e8449] mb-2">
+                            <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-linear-to-br from-[#27ae60] to-[#1e8449] mb-2">
                                 <span className="text-xl sm:text-2xl">📱</span>
                             </div>
                             <h4 className="font-bold text-[#2c3e50] text-base sm:text-lg">Scan Zalo code</h4>
@@ -69,9 +69,9 @@ const ContactContent = () => {
                         </div>
                         <button
                             onClick={() => setShowQR(false)}
-                            className="mt-3 sm:mt-4 w-full py-2 bg-gradient-to-r from-[#27ae60] to-[#1e8449] text-white rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity text-sm sm:text-base"
+                            className="mt-3 sm:mt-4 w-full py-2 bg-linear-to-r from-[#27ae60] to-[#1e8449] text-white rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity text-sm sm:text-base"
                         >
-                            Đóng
+                            Close
                         </button>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ const ContactContent = () => {
 
             {/* Header - Responsive */}
             <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#e67e22] to-[#d35400] mb-2 sm:mb-3 shadow-lg">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-linear-to-br from-[#e67e22] to-[#d35400] mb-2 sm:mb-3 shadow-lg">
                     <span className="text-2xl sm:text-3xl">👋</span>
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#2c3e50]">Let's Connect!</h3>
@@ -97,7 +97,7 @@ const ContactContent = () => {
                             onClick={method.action || undefined}
                             className={`flex items-center gap-2 sm:gap-3 md:gap-4 p-2 sm:p-3 md:p-4 bg-white rounded-lg sm:rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 w-full text-left ${!method.href && !method.action ? 'pointer-events-none' : 'cursor-pointer'}`}
                         >
-                            <div className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${method.color} flex items-center justify-center shadow-md flex-shrink-0`}>
+                            <div className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-linear-to-br ${method.color} flex items-center justify-center shadow-md shrink-0`}>
                                 <span className="text-base sm:text-lg md:text-xl">{method.icon}</span>
                             </div>
                             <div className="flex-1 min-w-0">
@@ -105,7 +105,7 @@ const ContactContent = () => {
                                 <p className="font-semibold text-[#2c3e50] text-xs sm:text-sm md:text-base truncate">{method.value}</p>
                             </div>
                             {(method.href || method.action) && (
-                                <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
                                     <span className="text-gray-400 text-sm">→</span>
                                 </div>
                             )}
@@ -132,15 +132,15 @@ const ContactContent = () => {
             </div>
 
             {/* CTA - Responsive */}
-            <div className="bg-gradient-to-r from-[#5a6340] to-[#7a8a50] rounded-lg sm:rounded-xl p-3 sm:p-4 text-center shadow-lg">
+            <div className="bg-linear-to-r from-[#5a6340] to-[#7a8a50] rounded-lg sm:rounded-xl p-3 sm:p-4 text-center shadow-lg">
                 <p className="text-white/90 text-xs sm:text-sm mb-1 sm:mb-2">Ready to collaborate?</p>
-                <p className="text-white font-bold text-sm sm:text-base">Let's build something amazing together! 🚀</p>
+                <p className="text-white font-bold text-sm sm:text-base">Let's explore how we can bring your vision to life through data and logic.</p>
             </div>
 
             {/* Secret Popup */}
-            <SecretPopup 
-                isOpen={showSecretPopup} 
-                onClose={() => setShowSecretPopup(false)} 
+            <SecretPopup
+                isOpen={showSecretPopup}
+                onClose={() => setShowSecretPopup(false)}
             />
         </div>
     )

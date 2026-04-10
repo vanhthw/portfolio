@@ -23,7 +23,7 @@ const ProfileContent = () => {
                     <span className="text-gray-700 text-sm sm:text-base md:text-lg"> (Sofia)</span>
                 </h2>
                 <p className="text-gray-700 uppercase tracking-wider font-semibold text-xs sm:text-sm mt-1 sm:mt-2">
-                    I'M A BUSINESS ANALYST.
+                    I'M A DATA ANALYST.
                 </p>
                 <p className="text-gray-600 italic text-xs sm:text-sm border-l-4 border-[#e67e22] pl-3 mt-1 sm:mt-2 text-left">
                     {/* "Code is like a puzzle, and I'm the puzzle solver" */}

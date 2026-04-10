@@ -1,5 +1,6 @@
 // components/Resume.jsx
 import React, { useState } from "react"
+import * as z from "../assets/index"
 
 // Component con AccordionItem - Responsive
 const AccordionItem = ({ title, icon, iconBg, isOpen, onClick, children }) => {
@@ -40,10 +41,10 @@ const ResumeContent = () => {
 
     const experiences = [
         {
-            role: "Web Developer",
-            company: "VLH Company",
+            role: "Reporting Developer",
+            company: "Việt Long Hưng Garment Company",
             period: "3/2025 - Present",
-            description: "????"
+            description: "Developing and maintaining reporting solutions. Analyzing data and building reports to support decision-making."
         },
         {
             role: "Java Intern",
@@ -55,37 +56,40 @@ const ResumeContent = () => {
 
     const projects = [
         {
-            name: "Portfolio Website",
-            tech: "React, TailwindCSS",
-            description: "Personal portfolio with creative design"
+            name: "Theo dõi sản lượng sấy",
+            tech: "React, NodeJS",
+            description: "Dashboard theo dõi sản lượng sấy và thống kê dữ liệu",
+            reportUrl: "https://drying.congtien.com.vn/dryingquantitydashboard"
         },
         {
-            name: "#",
-            tech: "#",
-            description: "#"
+            name: "Báo cáo tiến độ dự án",
+            tech: "React, NodeJS, Google Sheets API",
+            description: "Báo cáo tiến độ dự án và thống kê dữ liệu",
+            reportUrl: "#"
         },
         {
-            name: "#",
-            tech: "#",
-            description: "#"
-        }
+            name: "Báo cáo máy chuyên dùng",
+            tech: "React, NodeJS",
+            description: "Báo cáo tiến độ dự án và thống kê dữ liệu",
+            reportUrl: "#"
+        },
     ]
 
     const certificates = [
         {
-            name: "#",
-            issuer: "#",
-            year: "2023"
+            name: "TOEIC LR 730",
+            issuer: "IIG Việt Nam",
+            year: "02/2025"
         },
         {
-            name: "#",
-            issuer: "#",
-            year: "2022"
+            name: "HackerRank SQL (Advanced)",
+            issuer: "HackerRank",
+            year: "02/2025"
         },
         {
-            name: "#",
-            issuer: "#",
-            year: "2022"
+            name: "Google AI Professional Certificate",
+            issuer: "Google",
+            year: "02/2026"
         }
     ]
 
@@ -102,12 +106,16 @@ const ResumeContent = () => {
         <div className="flex flex-col gap-3 sm:gap-4">
             {/* Header - Responsive */}
             <div className="flex items-center gap-3 sm:gap-4 pb-3 sm:pb-4 border-b-2 border-dashed border-[#5a6340]/30">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-linear-to-br from-[#e67e22] to-[#d35400] flex items-center justify-center text-white text-base sm:text-lg md:text-xl font-bold shadow-lg shrink-0">
-                    AT
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-gray-300 overflow-hidden shadow-lg shrink-0">
+                    <img
+                        src={z.avatarImg}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                    />
                 </div>
                 <div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#2c3e50]">Võ Anh Thư</h3>
-                    <p className="text-[#e67e22] font-medium text-xs sm:text-sm">Business Analyst</p>
+                    <p className="text-[#e67e22] font-medium text-xs sm:text-sm">Data Analyst</p>
                 </div>
             </div>
 
@@ -154,6 +162,17 @@ const ResumeContent = () => {
                                 <p className="font-semibold text-[#2c3e50] text-xs sm:text-sm">{project.name}</p>
                                 <p className="text-[#9b59b6] text-[10px] sm:text-xs font-medium">{project.tech}</p>
                                 <p className="text-gray-500 text-[10px] sm:text-xs mt-1">{project.description}</p>
+                                {project.reportUrl && (
+                                    <a
+                                        href={project.reportUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 mt-2 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] transition-colors"
+                                    >
+                                        <span aria-hidden="true">🔗</span>
+                                        <span>Xem báo cáo</span>
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -208,7 +227,7 @@ const ResumeContent = () => {
             </div>
 
             {/* Download Button - Responsive */}
-            <button className="group w-full py-2 sm:py-2.5 md:py-3 bg-linear-to-r from-[#5a6340] to-[#7a8a50] text-white rounded-lg sm:rounded-xl font-medium hover:from-[#4a5335] hover:to-[#6a7a45] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mt-1 sm:mt-2 text-sm sm:text-base">
+            <button className="group w-full py-2 sm:py-2.5 md:py-3 bg-linear-to-r from-[#5a6340] to-[#7a8a50] text-white rounded-lg sm:rounded-xl font-medium hover:from-[#4a5335] hover:to-[#6a7a45] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-1 mt-1 sm:mt-2 text-sm sm:text-base">
                 <span className="group-hover:animate-bounce">📥</span>
                 <span>Download Full CV</span>
             </button>

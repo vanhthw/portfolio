@@ -5,13 +5,14 @@ import {
   Route,
 } from 'react-router-dom';
 import Portfolio from "./pages/Portfolio";
-
+import ProjectsDemo from "./pages/ProjectsDemo";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Portfolio />} />
+        <Route path="/projects-demo" element={<ProjectsDemo />} />
       </Routes>
     </Router>
   );

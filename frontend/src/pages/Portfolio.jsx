@@ -251,7 +251,7 @@ const Portfolio = () => {
                                 font-mono tracking-[0.2em] uppercase opacity-70
                                 text-center"
                             >
-                                developed by vanhthuww
+                                developed by Anh Thu
                             </span>
                         </div>
 

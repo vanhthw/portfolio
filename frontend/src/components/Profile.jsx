@@ -39,7 +39,7 @@ const ProfileContent = () => {
                     />
                 </p>
                 <div className="flex justify-center sm:justify-start gap-4 text-xs text-gray-500 mt-1 sm:mt-2">
-                    <span>Ho Chi Minh City, Viet Nam
+                    <span>Dong Thap Province, Viet Nam
                         <img src={z.vietnamFlagImg} alt="Vietnam Flag" className="w-4 h-4 inline-block ml-1" />
                     </span>
                 </div>

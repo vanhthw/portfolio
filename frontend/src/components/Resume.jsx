@@ -1,5 +1,6 @@
 // components/Resume.jsx
 import React, { useState } from "react"
+import { SquareArrowOutUpRight } from "lucide-react"
 import * as z from "../assets/index"
 
 // Component con AccordionItem - Responsive
@@ -42,13 +43,13 @@ const ResumeContent = () => {
     const experiences = [
         {
             role: "Reporting Developer",
-            company: "Việt Long Hưng Garment Company",
+            company: "Viet Long Hung Garment Company",
             period: "3/2025 - Present",
             description: "Developing and maintaining reporting solutions. Analyzing data and building reports to support decision-making."
         },
         {
             role: "Java Intern",
-            company: "VNPT IT 5",
+            company: "VNPT-IT Area 5",
             period: "6/2024 - 8/2024",
             description: "????"
         }
@@ -159,17 +160,30 @@ const ResumeContent = () => {
                     <div className="grid gap-2 sm:gap-3">
                         {projects.map((project, index) => (
                             <div key={index} className="bg-[#f8f9fa] p-2 sm:p-3 rounded-lg border-l-3 sm:border-l-4 border-[#9b59b6]">
-                                <p className="font-semibold text-[#2c3e50] text-xs sm:text-sm">{project.name}</p>
-                                <p className="text-[#9b59b6] text-[10px] sm:text-xs font-medium">{project.tech}</p>
+                                <div className="flex justify-between items-center sm:items-start md:items-center gap-2">
+                                    <p className="font-semibold text-[#2c3e50] text-xs sm:text-sm m-0 leading-none">{project.name}</p>
+                                    {project.reportUrl && (
+                                        <a
+                                            href={project.reportUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hidden sm:inline-flex items-center gap-1 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] transition-colors shrink-0"
+                                        >
+                                            <SquareArrowOutUpRight className="w-4 h-4" />
+                                            <span className="leading-none mt-0.5">Xem báo cáo</span>
+                                        </a>
+                                    )}
+                                </div>
+                                <p className="text-[#9b59b6] text-[10px] sm:text-xs font-medium mt-1 sm:mt-1.5">{project.tech}</p>
                                 <p className="text-gray-500 text-[10px] sm:text-xs mt-1">{project.description}</p>
                                 {project.reportUrl && (
                                     <a
                                         href={project.reportUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1 mt-2 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] transition-colors"
+                                        className="sm:hidden inline-flex items-center gap-1 mt-2 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] transition-colors"
                                     >
-                                        <span aria-hidden="true">🔗</span>
+                                        <SquareArrowOutUpRight className="w-3.5 h-3.5" />
                                         <span>Xem báo cáo</span>
                                     </a>
                                 )}

@@ -1,52 +1,95 @@
 // components/Tools.jsx
 /*
     Mục đích của cái trang này 
-    1. BA làm gì ??? 
-    2. BA dùng tools gì để giải quyết vấn đề ???
+    1. DA làm gì ??? 
+    2. DA dùng tools gì để giải quyết vấn đề ???
     3. Có thể dùng để giải quyết khi làm thực tế không ??? 
 */
 import React from "react"
 import * as z from "../assets/index"
 
 const ToolsContent = () => {
+    // const toolCategories = [
+    //     {
+    //         category: "Data Extraction & Databases",
+    //         description: "Querying, managing, and extracting data from relational databases.",
+    //         tools: [
+    //             { name: "SQL Server", image: z.sqlServerImg, color: "bg-teal-50" },
+    //             { name: "MySQL", image: z.mysqlImg, color: "bg-blue-50" },
+    //         ]
+    //     },
+    //     {
+    //         category: "Data Processing & Analysis",
+    //         description: "Cleaning, transforming, and analyzing datasets.",
+    //         tools: [
+    //             { name: "Excel", image: z.excelImg, color: "bg-green-50" },
+    //             { name: "Google Sheets", image: z.sheetsImg, color: "bg-green-50" },
+    //             { name: "VS Code", image: z.vscodeImg, color: "bg-blue-50" },
+    //         ]
+    //     },
+    //     {
+    //         category: "Data Visualization & Dashboarding",
+    //         description: "Creating interactive dashboards and visual reports.",
+    //         tools: [
+    //             { name: "Power BI", image: z.pbiImg, color: "bg-yellow-50" },
+    //         ]
+    //     },
+    //     {
+    //         category: "Version Control & Documentation",
+    //         description: "Managing project source code, tracking tasks, and documentations.",
+    //         tools: [
+    //             { name: "GitHub", image: z.githubImg, color: "bg-gray-50" },
+    //             { name: "Jira", image: z.jiraImg, color: "bg-blue-50" },
+    //             { name: "Docs", image: z.docImg, color: "bg-blue-50" },
+    //         ]
+    //     },
+    //     {
+    //         category: "Reporting & Presentation",
+    //         description: "Documenting findings and presenting insights to stakeholders.",
+    //         tools: [
+    //             { name: "Word", image: z.wordImg, color: "bg-blue-50" },
+    //             { name: "PowerPoint", image: z.wordImg, color: "bg-orange-50" },
+    //             { name: "Canva", image: z.canvaImg, color: "bg-orange-50" },
+    //         ]
+    //     },
+    // ];
     const toolCategories = [
         {
-            category: "Project Management & Documentation",
-            description: "Manage project requests, track progress, and archive project documents.",
+            category: "Data Extraction",
+            description: "Querying and retrieving data from databases.",
             tools: [
+                { name: "SQL Server", image: z.sqlServerImg, color: "bg-teal-50" },
+                { name: "MySQL", image: z.mysqlImg, color: "bg-blue-50" },
+            ]
+        },
+        {
+            category: "Data Analysis",
+            description: "Cleaning, transforming, and analyzing data.",
+            tools: [
+                { name: "Excel", image: z.excelImg, color: "bg-green-50" },
+                { name: "Google Sheets", image: z.sheetsImg, color: "bg-green-50" },
+                { name: "VS Code", image: z.vscodeImg, color: "bg-blue-50" },
+            ]
+        },
+        {
+            category: "Data Visualization",
+            description: "Creating dashboards and visual insights.",
+            tools: [
+                { name: "Power BI", image: z.pbiImg, color: "bg-yellow-50" },
+            ]
+        },
+        {
+            category: "Collaboration, Version Control & Reporting",
+            description: "Working in teams and presenting insights.",
+            tools: [
+                { name: "GitHub", image: z.githubImg, color: "bg-gray-50" },
                 { name: "Jira", image: z.jiraImg, color: "bg-blue-50" },
-                { name: "Confluence", image: z.confluenceImg, color: "bg-gray-50" },
-                { name: "Docs", image: z.docImg, color: "bg-gray-50" },
-            ]
-        },
-        {
-            category: "Process & Business Modeling",
-            description: "Process and business modeling to understand and optimize workflows.",
-            tools: [
-                { name: "Draw.io", image: z.drawioImg, color: "bg-blue-50" },
-                { name: "Microsoft Visio", image: z.visioImg, color: "bg-gray-50" },]
-        },
-        {
-            category: "Solution Design & API Collaboration",
-            description: "Wireframe, user flow, and API testing.",
-            tools: [
-                { name: "Figma", image: z.figmaImg, color: "bg-purple-50" },
-                { name: "Postman", image: z.postmanImg, color: "bg-purple-50" },
-                { name: "Swagger", image: z.swaggerImg, color: "bg-purple-50" },
-
-            ]
-        },
-        {
-            category: "Data analysis & Reporting",
-            description: "Analyzing data and building reports to support decision-making.",
-            tools: [
-                { name: "Power BI", image: z.pbiImg, color: "bg-teal-50" },
-                { name: "SQL Server/MySQL", image: z.sqlServerImg, color: "bg-teal-50" },
-                { name: "Excel/Sheets", image: z.sheetsImg, color: "bg-teal-50" },
+                { name: "PowerPoint", image: z.wordImg, color: "bg-orange-50" },
+                { name: "Word", image: z.wordImg, color: "bg-blue-50" },
+                { name: "Canva", image: z.canvaImg, color: "bg-orange-50" },
             ]
         },
     ];
-
     return (
         <div className="max-w-6xl mx-auto">
             <div className="space-y-4 sm:space-y-6 md:space-y-8">

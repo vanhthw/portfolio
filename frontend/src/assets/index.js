@@ -36,6 +36,9 @@ import removeImg from "./social/remove.png";
 // AVATAR
 import avatarImg from "./avt.jpg";
 
+// DASHBOARD
+import sayImg from "./dashboards/say.png";
+
 export {
   vietnamFlagImg,
   zaloQR,
@@ -66,4 +69,6 @@ export {
   swaggerImg,
   drawioImg,
   pbiImg,
+
+  sayImg,
 };

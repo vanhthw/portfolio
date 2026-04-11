@@ -41,7 +41,7 @@ const Window = ({ isOpen, onClose, path, children }) => {
                         onClick={onClose}
                         className="w-7 h-7 sm:w-8 sm:h-8 bg-[#e74c3c] hover:bg-[#c0392b] rounded-md flex items-center justify-center transition-colors shrink-0"
                     >
-                        <img src={z.removeImg} alt="remove" className="w-7 h-7 sm:w-8 sm:h-8" />
+                        <img src={z.removeImg} alt="remove" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
                     </button>
                 </div>
 

@@ -1,5 +1,6 @@
 // components/Resume.jsx
 import React, { useState } from "react"
+import { Link } from "react-router-dom"
 import { SquareArrowOutUpRight } from "lucide-react"
 import * as z from "../assets/index"
 
@@ -51,28 +52,34 @@ const ResumeContent = () => {
             role: "Java Intern",
             company: "VNPT-IT Area 5",
             period: "6/2024 - 8/2024",
-            description: "????"
+            description: "Java Developer Intern"
         }
     ]
 
     const projects = [
         {
-            name: "Theo dõi sản lượng sấy",
+            name: "Báo cáo theo dõi số lượng sấy",
             tech: "React, NodeJS",
             description: "Dashboard theo dõi sản lượng sấy và thống kê dữ liệu",
-            reportUrl: "https://drying.congtien.com.vn/dryingquantitydashboard"
+            reportUrl: "/projects-demo"
         },
         {
-            name: "Báo cáo tiến độ dự án",
-            tech: "React, NodeJS, Google Sheets API",
-            description: "Báo cáo tiến độ dự án và thống kê dữ liệu",
-            reportUrl: "#"
-        },
-        {
-            name: "Báo cáo máy chuyên dùng",
+            name: "Báo cáo hiệu quả các máy tự động",
             tech: "React, NodeJS",
-            description: "Báo cáo tiến độ dự án và thống kê dữ liệu",
-            reportUrl: "#"
+            description: "Báo cáo hiệu quả các máy tự động và thống kê dữ liệu",
+            reportUrl: "/projects-demo"
+        },
+        {
+            name: "Báo cáo hiệu suất chuyền",
+            tech: "React, NodeJS, Google Sheets API",
+            description: "Theo dõi hiệu suất chuyền và thống kê dữ liệu",
+            reportUrl: "/projects-demo"
+        },
+        {
+            name: "Trích xuất và xử lý dữ liệu Packing List",
+            tech: "Excel VBA",
+            description: "Trích xuất và xử lý dữ liệu Packing List từ nhà cung cấp để import vào phần mềm sản xuất",
+            reportUrl: "/projects-demo"
         },
     ]
 
@@ -163,29 +170,25 @@ const ResumeContent = () => {
                                 <div className="flex justify-between items-center sm:items-start md:items-center gap-2">
                                     <p className="font-semibold text-[#2c3e50] text-xs sm:text-sm m-0 leading-none">{project.name}</p>
                                     {project.reportUrl && (
-                                        <a
-                                            href={project.reportUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="hidden sm:inline-flex items-center gap-1 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] transition-colors shrink-0"
+                                        <Link
+                                            to={project.reportUrl}
+                                            className="hidden sm:inline-flex items-center gap-1 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] no-underline hover:underline underline-offset-2 decoration-[#8e44ad] transition-colors shrink-0"
                                         >
-                                            <SquareArrowOutUpRight className="w-4 h-4" />
+                                            <SquareArrowOutUpRight className="w-4 h-4 shrink-0" />
                                             <span className="leading-none mt-0.5">Xem báo cáo</span>
-                                        </a>
+                                        </Link>
                                     )}
                                 </div>
                                 <p className="text-[#9b59b6] text-[10px] sm:text-xs font-medium mt-1 sm:mt-1.5">{project.tech}</p>
                                 <p className="text-gray-500 text-[10px] sm:text-xs mt-1">{project.description}</p>
                                 {project.reportUrl && (
-                                    <a
-                                        href={project.reportUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="sm:hidden inline-flex items-center gap-1 mt-2 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] transition-colors"
+                                    <Link
+                                        to={project.reportUrl}
+                                        className="sm:hidden inline-flex items-center gap-1 mt-2 text-[10px] sm:text-xs font-medium text-[#9b59b6] hover:text-[#8e44ad] no-underline hover:underline underline-offset-2 decoration-[#8e44ad] transition-colors"
                                     >
-                                        <SquareArrowOutUpRight className="w-3.5 h-3.5" />
+                                        <SquareArrowOutUpRight className="w-3.5 h-3.5 shrink-0" />
                                         <span>Xem báo cáo</span>
-                                    </a>
+                                    </Link>
                                 )}
                             </div>
                         ))}

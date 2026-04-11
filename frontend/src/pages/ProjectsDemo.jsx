@@ -8,25 +8,30 @@ const ProjectsDemo = () => {
     // Bạn có thể thêm nhiều demo vào mảng này
     const demos = [
         {
-            title: "Theo dõi số lượng sấy",
+            title: "Báo cáo theo dõi số lượng sấy",
             image: z.sayImg, // Lấy từ z.sayImg trong file index.js
             // url: "https://drying.congtien.com.vn/dryingquantitydashboard" // Vẫn giữ lại link nếu bạn muốn cho phép "Mở xem đầy đủ"
         },
         {
-            title: "Báo cáo tiến độ cắt",
-            image: z.sayImg, // Lấy từ z.sayImg trong file index.js
+            title: "Báo cáo hiệu quả các máy tự động",
+            image: z.mtdImg, // Lấy từ z.sayImg trong file index.js
             // url: "https://drying.congtien.com.vn/dryingquantitydashboard" // Vẫn giữ lại link nếu bạn muốn cho phép "Mở xem đầy đủ"
         },
         {
-            title: "Theo dõi máy chuyên dụng",
-            image: z.sayImg, // Lấy từ z.sayImg trong file index.js
+            title: "Báo cáo hiệu suất",
+            image: z.hsImg, // Lấy từ z.sayImg trong file index.js
             // url: "https://drying.congtien.com.vn/dryingquantitydashboard" // Vẫn giữ lại link nếu bạn muốn cho phép "Mở xem đầy đủ"
         },
         {
-            title: "Theo dõi mã hàng chuyển đổi nhanh",
-            image: z.sayImg, // Lấy từ z.sayImg trong file index.js
+            title: "Báo cáo năng lực cắt bán thành phẩm trong ngày",
+            image: z.catImg, // Lấy từ z.sayImg trong file index.js
             // url: "https://drying.congtien.com.vn/dryingquantitydashboard" // Vẫn giữ lại link nếu bạn muốn cho phép "Mở xem đầy đủ"
-        }
+        },
+        {
+            title: "Báo cáo theo dõi mã hàng chuyển đổi nhanh",
+            image: z.qcoImg, // Lấy từ z.sayImg trong file index.js
+            // url: "https://drying.congtien.com.vn/dryingquantitydashboard" // Vẫn giữ lại link nếu bạn muốn cho phép "Mở xem đầy đủ"
+        },
     ];
 
     return (
@@ -66,7 +71,7 @@ const ProjectsDemo = () => {
                     <div className="mb-6">
                         <h2 className="text-2xl sm:text-3xl font-bold text-[#2c3e50] mb-2">Projects Demo</h2>
                         <p className="text-gray-600 text-sm sm:text-base">
-                            Dưới đây là danh sách một số báo cáo tôi đã làm trong quá trình làm việc tại công ty.
+                        Below is a list of some of the reports I worked on during my time at the company.
                         </p>
                     </div>
 

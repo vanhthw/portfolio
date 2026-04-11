@@ -9,59 +9,7 @@ import React from "react"
 import * as z from "../assets/index"
 
 const ToolsContent = () => {
-    // const toolCategories = [
-    //     {
-    //         category: "Data Extraction & Databases",
-    //         description: "Querying, managing, and extracting data from relational databases.",
-    //         tools: [
-    //             { name: "SQL Server", image: z.sqlServerImg, color: "bg-teal-50" },
-    //             { name: "MySQL", image: z.mysqlImg, color: "bg-blue-50" },
-    //         ]
-    //     },
-    //     {
-    //         category: "Data Processing & Analysis",
-    //         description: "Cleaning, transforming, and analyzing datasets.",
-    //         tools: [
-    //             { name: "Excel", image: z.excelImg, color: "bg-green-50" },
-    //             { name: "Google Sheets", image: z.sheetsImg, color: "bg-green-50" },
-    //             { name: "VS Code", image: z.vscodeImg, color: "bg-blue-50" },
-    //         ]
-    //     },
-    //     {
-    //         category: "Data Visualization & Dashboarding",
-    //         description: "Creating interactive dashboards and visual reports.",
-    //         tools: [
-    //             { name: "Power BI", image: z.pbiImg, color: "bg-yellow-50" },
-    //         ]
-    //     },
-    //     {
-    //         category: "Version Control & Documentation",
-    //         description: "Managing project source code, tracking tasks, and documentations.",
-    //         tools: [
-    //             { name: "GitHub", image: z.githubImg, color: "bg-gray-50" },
-    //             { name: "Jira", image: z.jiraImg, color: "bg-blue-50" },
-    //             { name: "Docs", image: z.docImg, color: "bg-blue-50" },
-    //         ]
-    //     },
-    //     {
-    //         category: "Reporting & Presentation",
-    //         description: "Documenting findings and presenting insights to stakeholders.",
-    //         tools: [
-    //             { name: "Word", image: z.wordImg, color: "bg-blue-50" },
-    //             { name: "PowerPoint", image: z.wordImg, color: "bg-orange-50" },
-    //             { name: "Canva", image: z.canvaImg, color: "bg-orange-50" },
-    //         ]
-    //     },
-    // ];
     const toolCategories = [
-        {
-            category: "Data Extraction",
-            description: "Querying and retrieving data from databases.",
-            tools: [
-                { name: "SQL Server", image: z.sqlServerImg, color: "bg-teal-50" },
-                { name: "MySQL", image: z.mysqlImg, color: "bg-blue-50" },
-            ]
-        },
         {
             category: "Data Analysis",
             description: "Cleaning, transforming, and analyzing data.",
@@ -69,6 +17,14 @@ const ToolsContent = () => {
                 { name: "Excel", image: z.excelImg, color: "bg-green-50" },
                 { name: "Google Sheets", image: z.sheetsImg, color: "bg-green-50" },
                 { name: "VS Code", image: z.vscodeImg, color: "bg-blue-50" },
+            ]
+        },
+        {
+            category: "Data Extraction",
+            description: "Querying and retrieving data from databases.",
+            tools: [
+                { name: "SQL Server", image: z.sqlServerImg, color: "bg-teal-50" },
+                { name: "MySQL", image: z.mysqlImg, color: "bg-blue-50" },
             ]
         },
         {
@@ -84,7 +40,7 @@ const ToolsContent = () => {
             tools: [
                 { name: "GitHub", image: z.githubImg, color: "bg-gray-50" },
                 { name: "Jira", image: z.jiraImg, color: "bg-blue-50" },
-                { name: "PowerPoint", image: z.wordImg, color: "bg-orange-50" },
+                { name: "PowerPoint", image: z.pptImg, color: "bg-orange-50" },
                 { name: "Word", image: z.wordImg, color: "bg-blue-50" },
                 { name: "Canva", image: z.canvaImg, color: "bg-orange-50" },
             ]

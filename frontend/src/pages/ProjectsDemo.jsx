@@ -49,7 +49,7 @@ const ProjectsDemo = () => {
             />
 
             {/* Popup Window */}
-            <div className="relative z-10 w-full max-w-5xl rounded-lg shadow-2xl flex flex-col h-[95vh]">
+            <div className="relative z-10 w-full max-w-5xl rounded-lg shadow-2xl flex flex-col h-[86vh]">
                 {/* Title Bar */}
                 <div className="bg-[#5a6340] rounded-t-lg px-3 sm:px-4 py-2 sm:py-3 flex items-center justify-between shrink-0">
                     <span
